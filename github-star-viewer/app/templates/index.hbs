@@ -1,0 +1,13 @@
+@{{input action="addUser" placeholder="username(GitHub)"}}
+
+{{#if model}}
+  <h2>最近検索したユーザ</h2>
+{{/if}}
+<ul>
+{{#each user in model}}
+  <li>
+    <img src={{user.avatar_url}} width="20px" height="20px"/>
+    {{link-to user.id "user" user}}
+  </li>
+{{/each}}
+</ul>
