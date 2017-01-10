@@ -1,2 +1,17 @@
 <img src={{model.avatar_url}} width="20px" height="20px"/>
 {{model.id}}
+
+<ul>
+  最近 star したリポジトリ
+  {{#each model.starred as |repo|}}
+    <li>
+      <img src={{repo.owner.avatar_url}} width="20px" height="20px"/>
+      <a href={{repo.html_url}} target="_blank">{{repo.full_name}}</a>
+      [{{repo.watchers}}]
+      #{{repo.language}}
+      <div>
+        {{repo.description}}
+      </div>
+    </li>
+  {{/each}}
+</ul>
