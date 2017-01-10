@@ -1,15 +1,11 @@
-import DS from 'ember-data';
+import Serializer from './application';
 
-export default DS.RESTSerializer.extend({
+export default Serializer.extend({
   primaryKey: 'login',
 
   normalizeSingleResponse(store, primaryModelClass, payload, id, requestType) {
     payload.links = {
       starred: `${payload.url}/starred`
-    };
-
-    payload = {
-      user: payload
     };
 
     return this._super(store, primaryModelClass, payload, id, requestType);

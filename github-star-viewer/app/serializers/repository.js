@@ -1,19 +1,4 @@
-import DS from 'ember-data';
+import Serializer from './application';
 
-export default DS.RESTSerializer.extend({
-  normalizeSingleResponse(store, primaryModelClass, payload, id, requestType) {
-    payload = {
-      repository: payload
-    };
-
-    return this._super(store, primaryModelClass, payload, id, requestType);
-  },
-
-  normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
-    payload = {
-      repositories: payload
-    };
-
-    return this._super(store, primaryModelClass, payload, id, requestType);
-  }
+export default Serializer.extend({
 });
