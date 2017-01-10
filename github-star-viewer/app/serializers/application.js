@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import {pluralize} from 'ember-inflector';
 
 export default DS.RESTSerializer.extend({
   normalizeSingleResponse(store, primaryModelClass, payload, id, requestType) {
@@ -11,7 +12,7 @@ export default DS.RESTSerializer.extend({
 
   normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
     payload = {
-      [Ember.String.pluralize(primaryModelClass.modelName)]: payload
+      [pluralize(primaryModelClass.modelName)]: payload
     };
 
     return this._super(store, primaryModelClass, payload, id, requestType);
