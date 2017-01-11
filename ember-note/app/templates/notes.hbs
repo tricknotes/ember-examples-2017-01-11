@@ -1,4 +1,9 @@
 <ul>
+  <li>
+    {{#link-to "notes.new"}}
+      +
+    {{/link-to}}
+  </li>
   {{#each model as |note|}}
     <li>{{link-to note.title "notes.show" note}}</li>
   {{/each}}

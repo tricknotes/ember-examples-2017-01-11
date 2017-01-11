@@ -1,0 +1,13 @@
+<form {{action "addNote" model on="submit"}}>
+  <label>
+    タイトル
+    {{input value=model.title}}
+  </label>
+
+  <label>
+    本文
+    {{input value=model.body}}
+  </label>
+
+  <input type="submit" value="Create a note"/>
+</form>
