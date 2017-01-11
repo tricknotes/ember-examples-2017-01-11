@@ -1,14 +1,29 @@
-<ul>
-  <li>
-    {{#link-to "notes.new"}}
-      +
-    {{/link-to}}
-  </li>
-  {{#each model as |note|}}
-    <li>{{link-to note.title "notes.show" note}}</li>
-  {{/each}}
-</ul>
+{{#paper-sidenav
+  class="md-whiteframe-z2"
+  name="left"
+}}
+  {{#paper-toolbar as |toolbar|}}
+    {{#paper-toolbar-tools}}Ember Note{{/paper-toolbar-tools}}
+  {{/paper-toolbar}}
+  {{#paper-card-content class="flex"}}
+    {{#paper-list}}
+      {{#paper-item class="md-1-line"}}
+        {{#link-to "notes.new"}}
+          {{paper-icon "note-add" primary=true}}
+        {{/link-to}}
+      {{/paper-item}}
 
-<main>
+      {{#paper-subheader}}{{model.length}} notes.{{/paper-subheader}}
+
+      {{#each model as |note|}}
+        {{#paper-item class="md-1-line"}}
+          {{link-to note.title "notes.show" note}}
+        {{/paper-item}}
+      {{/each}}
+    {{/paper-list}}
+  {{/paper-card-content}}
+{{/paper-sidenav}}
+
+{{#paper-card-content class="flex"}}
   {{outlet}}
-</main>
+{{/paper-card-content}}

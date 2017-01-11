@@ -5,10 +5,13 @@ export default Ember.Route.extend({
     return {};
   },
   actions: {
-    addNote(attrs) {
+    addNote() {
+      const attrs = this.modelFor('notes.new');
       const model = this.store.createRecord('note', attrs);
 
-      this.transitionTo('notes.show', model);
+      model.save().then(() => {
+        this.transitionTo('notes.show', model);
+      });
     }
   }
 });
