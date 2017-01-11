@@ -1,5 +1,9 @@
 <ul>
   {{#each model as |note|}}
-    <li>{{note.title}}</li>
+    <li>{{link-to note.title "notes.show" note}}</li>
   {{/each}}
 </ul>
+
+<main>
+  {{outlet}}
+</main>
